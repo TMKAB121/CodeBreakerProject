@@ -23,7 +23,7 @@ function guess() {
 		showReplay();
 	} else {
 		setMessage('Incorrect, try again.');
-		console.log(attempt);
+		//console.log(attempt);
 	}
 }
 
@@ -64,8 +64,8 @@ function getResults(input){
 	running_results += '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
 	for (let i = 0; i<4; i++){
 		let int = res[i];
-		console.log(int);
-		console.log(answer[i]);
+		//console.log(int);
+		//console.log(answer[i]);
 		if (int == answer[i]){
 			running_results += '<span class="glyphicon glyphicon-ok"></span>';
 			correct_num ++;
