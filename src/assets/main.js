@@ -1,5 +1,5 @@
-let answer = document.getElementById('answer').value;
-let attempt = document.getElementById('attempt').vaule;
+var answer = document.getElementById('answer').value;
+var attempt = document.getElementById('attempt').vaule;
 
 function guess() {
 	//console.log(answer);
@@ -29,7 +29,7 @@ function guess() {
 
 //implement new functions here
 function setHiddenFields(){
-	let random = Math.random() * 1000;
+	let random = Math.random() * 10000;
 	answer = Math.floor(random);
 	answer = answer.toString();
 	while(answer.length < 4){
