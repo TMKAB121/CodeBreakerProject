@@ -18,7 +18,7 @@ function guess() {
 		setMessage('You Win! :)');
 		showAnswer(true);
 		showReplay();
-	} else if (!getResults(input) && attempt === 10){
+	} else if (attempt > 10){
 		setMessage('You Lose! :(');
 		showAnswer(false);
 		showReplay();
@@ -62,7 +62,6 @@ function getResults(input){
 	//console.log(input);
 	let res = input.toString();
 	let correct_num = 0;
-	let running_results = '';
 	running_results += '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
 	for (let i = 0; i<4; i++){
 		let int = res[i];
@@ -78,7 +77,7 @@ function getResults(input){
 		}
 	
 	}
-	running_results += '</div>';
+	running_results += '</div></div>';
 	document.getElementById('results').innerHTML = running_results;
 	if (correct_num == 4){
 		return true;
