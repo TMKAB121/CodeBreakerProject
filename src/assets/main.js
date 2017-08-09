@@ -1,44 +1,44 @@
-var answer = document.getElementById('answer');
-var attempt = document.getElementById('attempt');
+var answer = document.getElementById('answer').value;
+var attempt = document.getElementById('attempt').vaule;
 
 function guess() {
-	//console.log(answer.value);
+	//console.log(answer);
     let input = document.getElementById('user-guess').value;
     //add functionality to guess function here
-	if(answer.value == undefined || attempt.value == undefined){
+	if(answer == undefined || attempt == undefined){
 		setHiddenFields();
 	}
 	if(!validateInput(input)){
 		return false;
 	} else{
-		attempt.value += 1;
+		attempt ++;
 	}
 	if(getResults(input)){
 		setMessage('You Win! :)');
 		showAnswer(true);
 		showReplay();
-	} else if (!getResults(input) && attempt.value => 10){
+	} else if (!getResults(input) && attempt === 10){
 		setMessage('You Lose! :(');
 		showAnswer(false);
 		showReplay();
 	} else {
 		setMessage('Incorrect, try again.');
-		console.log(attempt.value);
+		//console.log(attempt);
 	}
 }
 
 //implement new functions here
 function setHiddenFields(){
 	let random = Math.random() * 10000;
-	answer.value = Math.floor(random);
-	answer.value = answer.value.toString();
+	answer = Math.floor(random);
+	answer = answer.toString();
 	while(answer.length < 4){
-		answer.value = '0' + answer.value;
+		answer = '0' + answer;
 	}
-	attempt.value = 0;
-	//console.log(attempt.value);
+	attempt = 0;
+	//console.log(attempt);
 	//console.log(random);
-	//console.log(answer.value);;
+	//console.log(answer);
 }
 
 function setMessage(msg){
@@ -65,11 +65,11 @@ function getResults(input){
 	for (let i = 0; i<4; i++){
 		let int = res[i];
 		//console.log(int);
-		//console.log(answer.value[i]);
-		if (int == answer.value[i]){
+		//console.log(answer[i]);
+		if (int == answer[i]){
 			running_results += '<span class="glyphicon glyphicon-ok"></span>';
 			correct_num ++;
-		} else if (answer.value.includes(int)){
+		} else if (answer.includes(int)){
 			running_results += '<span class="glyphicon glyphicon-transfer"></span>';
 		} else {
 			running_results += '<span class="glyphicon glyphicon-remove"></span>';
@@ -86,7 +86,7 @@ function getResults(input){
 }
 
 function showAnswer(input){
-	document.getElementById('code').innerHTML = answer.value;
+	document.getElementById('code').innerHTML = answer;
 	if (input == true){
 		document.getElementById('code').className += ' success';
 	} else {
