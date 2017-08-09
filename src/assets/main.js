@@ -13,20 +13,19 @@ function guess() {
 	} else{
 		attempt ++;
 		document.getElementById('attempt').value = attempt;
-		if(getResults(input)){
-			showAnswer(true);
-			setMessage("You Win! :)");			
-			showReplay();
-		} else if (attempt > 10){
-			setMessage("You Lose! :(");
-			showAnswer(false);
-			showReplay();
-		} else {
-			setMessage('Incorrect, try again.');
-			//console.log(attempt);
-		}
 	}
-	
+	if(getResults(input)){
+		setMessage("You Win! :)");
+		showAnswer(true);
+		showReplay();
+	} else if (attempt > 10){
+		setMessage("You Lose! :(");
+		showAnswer(false);
+		showReplay();
+	} else {
+		setMessage('Incorrect, try again.');
+		//console.log(attempt);
+	}
 }
 
 //implement new functions here
@@ -72,7 +71,7 @@ function getResults(input){
 		if (int == build_res[i]){
 			running_results += '<span class="glyphicon glyphicon-ok"></span>';
 			correct_num ++;
-		} else if (build_res.includes(int)){
+		} else if (build_res.indexOf(int) > -1){
 			running_results += '<span class="glyphicon glyphicon-transfer"></span>';
 		} else {
 			running_results += '<span class="glyphicon glyphicon-remove"></span>';
@@ -81,7 +80,7 @@ function getResults(input){
 	}
 	running_results += '</div></div>';
 	document.getElementById('results').innerHTML = running_results;
-	if (correct_num > 3){
+	if (input == answer){
 		return true;
 	} else {
 		return false;
