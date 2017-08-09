@@ -1,5 +1,5 @@
-var answer = document.getElementById('answer').value;
-var attempt = document.getElementById('attempt').vaule;
+var answer;
+var attempt;
 
 function guess() {
 	//console.log(answer);
@@ -12,6 +12,7 @@ function guess() {
 		return false;
 	} else{
 		attempt ++;
+		document.getElementById('attempt').value = attempt;
 	}
 	if(getResults(input)){
 		setMessage('You Win! :)');
@@ -39,6 +40,7 @@ function setHiddenFields(){
 	//console.log(attempt);
 	//console.log(random);
 	//console.log(answer);
+	document.getElementById('answer').value = answer;
 }
 
 function setMessage(msg){
