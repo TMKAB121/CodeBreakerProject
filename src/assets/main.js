@@ -61,16 +61,17 @@ var running_results = '';
 function getResults(input){
 	//console.log(input);
 	let res = input.toString();
+	let build_res = answer.toString();
 	let correct_num = 0;
 	running_results += '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
 	for (let i = 0; i<4; i++){
 		let int = res[i];
 		//console.log(int);
 		//console.log(answer[i]);
-		if (int == answer[i]){
+		if (int == build_res[i]){
 			running_results += '<span class="glyphicon glyphicon-ok"></span>';
 			correct_num ++;
-		} else if (answer.includes(int)){
+		} else if (build_res.includes(int)){
 			running_results += '<span class="glyphicon glyphicon-transfer"></span>';
 		} else {
 			running_results += '<span class="glyphicon glyphicon-remove"></span>';
@@ -79,7 +80,7 @@ function getResults(input){
 	}
 	running_results += '</div></div>';
 	document.getElementById('results').innerHTML = running_results;
-	if (correct_num == 4){
+	if (correct_num > 3){
 		return true;
 	} else {
 		return false;
