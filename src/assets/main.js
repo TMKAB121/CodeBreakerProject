@@ -13,19 +13,20 @@ function guess() {
 	} else{
 		attempt ++;
 		document.getElementById('attempt').value = attempt;
+		if(getResults(input)){
+			showAnswer(true);
+			setMessage("You Win! :)");			
+			showReplay();
+		} else if (attempt > 10){
+			setMessage("You Lose! :(");
+			showAnswer(false);
+			showReplay();
+		} else {
+			setMessage('Incorrect, try again.');
+			//console.log(attempt);
+		}
 	}
-	if(getResults(input)){
-		setMessage('You Win! :)');
-		showAnswer(true);
-		showReplay();
-	} else if (attempt > 10){
-		setMessage('You Lose! :(');
-		showAnswer(false);
-		showReplay();
-	} else {
-		setMessage('Incorrect, try again.');
-		//console.log(attempt);
-	}
+	
 }
 
 //implement new functions here
