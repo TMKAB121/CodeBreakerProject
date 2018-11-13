@@ -1,3 +1,5 @@
+#I'm making an edit to this to test our ability to commit a git project.
+
 # Use JavaScript to Create a "Code Breaker" Game
 
 You'll build a Code Breaker game using JavaScript. Based off the board game Mastermind, the game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. 
